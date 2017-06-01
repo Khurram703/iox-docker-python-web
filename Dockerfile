@@ -10,4 +10,4 @@ CMD python3 /main.py
 
 LABEL "cisco.cpuarch"="x86_64"
 LABEL "cisco.resources.profile"="c1.small"
-LABEL "cisco.resources.network.0.ports.tcp"="[9000]"
+LABEL "cisco.resources.network.0.ports.tcp"="9000"
