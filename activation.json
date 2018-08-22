@@ -3,7 +3,13 @@
         "profile": "c1.small",
         "network": [{
             "interface-name": "eth0",
-            "network-name": "iox-nat0"
+            "network-name": "iox-nat0",
+            "port_map": {
+                "mode": "auto",
+                "tcp": {
+                    "8000": "8000"
+                }
+            }
         }]
     }
 }
