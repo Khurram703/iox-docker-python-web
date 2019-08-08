@@ -1,23 +1,26 @@
-FROM python:3-alpine
+descriptor-schema-version: "2.2"
 
-RUN pip3 install bottle
+info:
+  name: iox_docker_python_web
+  description: "IOx Docker Python Web Sample Application"
+  version: "1.0"
+  author-link: "http://www.cisco.com"
+  author-name: "Cisco Systems"
 
-EXPOSE 8000
+app:
 
-COPY main.py /main.py
+  cpuarch: "x86_64"
+  type: docker
+  resources:
+    profile: c1.small
+    network:
+      -
+        interface-name: eth0
+        ports:
+          tcp:
+            - 8000
 
-LABEL cisco.info.name="iox_docker_python_web" \
-      cisco.info.description="Basic WebApp for IOx" \
-      cisco.info.version="0.1" \
-      cisco.info.author-link="" \
-      cisco.info.author-name="" \
-      cisco.type=docker \
-      cisco.cpuarch=x86_64 \
-      cisco.resources.profile=custom \
-      cisco.resources.cpu=100 \
-      cisco.resources.memory=100 \
-      cisco.resources.disk=10 \
-      cisco.resources.network.0.interface-name=eth0 \
-      cisco.resources.network.0.ports.tcp=[8000]
-
-CMD python3 /main.py
+  # Specify runtime and startup
+  startup:
+    rootfs: rootfs.tar
+    target: ["/usr/local/bin main.py"]
