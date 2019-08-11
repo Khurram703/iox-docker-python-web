@@ -23,4 +23,4 @@ app:
   # Specify runtime and startup
   startup:
     rootfs: rootfs.tar
-    target: ["/usr/local/bin main.py"]
+    target: ["python3 main.py"]
