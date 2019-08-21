@@ -3,6 +3,7 @@ from datetime import datetime
 from functools import wraps
 import logging
 import os
+import config as config
 
 try:
     directory = os.environ['CAF_APP_LOG_DIR'] + "/"
@@ -17,6 +18,15 @@ formatter = logging.Formatter('%(msg)s')
 file_handler.setLevel(logging.DEBUG)
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
+
+
+firstname = config.cfg.get("first_name", "first")
+lastname = config.cfg.get("last_name", "last")
+fullname = firstname + " " + lastname
+
+co_name = config.cfg.get("company_info", "comp_name")
+co_org = config.cfg.get("company_info", "comp_org")
+co_motto = config.cfg.get("company_info", "motto")
 
 
 def log_to_logger(fn):
@@ -46,7 +56,14 @@ def status(device_id):
 @app.route('/time')
 def time():
     current_time = datetime.now().isoformat(' ')
-    return {"system": 1, "datetime": current_time}
+    return {
+        "system": 1,
+        "datetime": current_time,
+        "username": fullname,
+        "company": co_name,
+        "org": co_org,
+        "motto": co_motto
+    }
 
 
 app.run(host='0.0.0.0', port=8000, quiet=True)
