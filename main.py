@@ -5,7 +5,7 @@ import logging
 import os
 import config as config
 
-try:
+"""try:
     directory = os.environ['CAF_APP_LOG_DIR'] + "/"
 except KeyError as e:
     # print(str(e) + " is non-existent")
@@ -17,7 +17,7 @@ file_handler = logging.FileHandler(directory + 'webapp.log')
 formatter = logging.Formatter('%(msg)s')
 file_handler.setLevel(logging.DEBUG)
 file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
+logger.addHandler(file_handler)"""
 
 
 firstname = config.cfg.get("first_name", "first")
@@ -29,7 +29,7 @@ co_org = config.cfg.get("company_info", "comp_org")
 co_motto = config.cfg.get("company_info", "motto")
 
 
-def log_to_logger(fn):
+"""def log_to_logger(fn):
     @wraps(fn)
     def _log_to_logger(*args, **kwargs):
         request_time = datetime.now()
@@ -41,11 +41,11 @@ def log_to_logger(fn):
             request.url,
             response.status))
         return actual_response
-    return _log_to_logger
+    return _log_to_logger"""
 
 
 app = Bottle()
-app.install(log_to_logger)
+# app.install(log_to_logger)
 
 
 @app.route('/status/<device_id>')
