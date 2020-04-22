@@ -1,4 +1,4 @@
-descriptor-schema-version: "2.9"
+descriptor-schema-version: "2.2"
 
 info:
   name: iox_docker_python_web
