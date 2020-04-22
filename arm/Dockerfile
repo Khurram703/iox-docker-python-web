@@ -4,9 +4,9 @@ RUN pip3 install bottle
 
 EXPOSE 8000
 
-COPY ..main.py /main.py
-COPY ..config.py /config.py
-COPY ..package_config.ini /package_config.ini
+COPY main.py /main.py
+COPY config.py /config.py
+COPY package_config.ini /package_config.ini
 
 LABEL cisco.info.name="iox_docker_python_web" \
       cisco.info.description="Basic WebApp for IOx" \
