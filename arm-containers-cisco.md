@@ -1,8 +1,10 @@
 # Build ARM based containers for IOx for the IR1101 hardware and other ARM based Cisco compute devices
 
-If you have the proper tools installed on your Windows or Mac computer this can actually be pretty straight forward to build ARM containers for the IR1101 and other Cisco IOx devices that also utilize ARM CPUs.
+>Note: This guide mainly focuses on the Docker for ARM build process and not the entire IOx application lifecycle. Please see the following learning lab to learn to deploy and manage the lifecycle of Docker applications to IOx.
 
-This guide mainly focuses on the Docker for ARM portion and not the entire IOx application lifecycle.
+https://developer.cisco.com/learning/lab/iox-app-docker-engine/step/1
+
+If you have the proper tools installed on your Windows or Mac computer this can actually be pretty straight forward to build ARM containers for the IR1101 and other Cisco IOx devices that also utilize ARM CPUs.
 
 ## Prerequisites
 
